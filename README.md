@@ -48,9 +48,9 @@ Le script principal `train_model.py` entraîne un réseau de neurones sur le jeu
 ├── images/             # Captures d'écran utilisées dans le rapport
 ├── train_model.py      # Script principal pour l'entraînement du modèle
 ├── mnist_model.h5      # Le modèle de neurones entraîné et sauvegardé
-├── app.py              # (À venir) API Flask pour servir le modèle
-├── requirements.txt    # (À venir) Dépendances du projet
-├── Dockerfile          # (À venir) Fichier de configuration Docker
+├── app.py              # API Flask pour servir le modèle
+├── requirements.txt    # Dépendances du projet
+├── Dockerfile          # Fichier de configuration Docker
 └── README.md           # Ce fichier
 ```
 
@@ -67,18 +67,47 @@ Le script principal `train_model.py` entraîne un réseau de neurones sur le jeu
     python3 -m venv venv
     source venv/bin/activate
     ```
-
 3.  **Installez les dépendances :**
-    *(Note : Le fichier `requirements.txt` sera créé dans l'exercice 4. Pour l'instant, installez manuellement.)*
     ```bash
-    pip install tensorflow numpy
+    pip install -r requirements.txt
     ```
 
-4.  **Exécutez le script d'entraînement :**
+4.  **Pour entraîner le modèle à nouveau (optionnel) :**
     ```bash
     python train_model.py
     ```
     Ceci va entraîner le modèle et créer le fichier `mnist_model.h5`.
+
+## Comment Tester l'API
+
+L'application `app.py` expose le modèle via une API. Pour la tester, vous devez lancer le serveur, puis lui envoyer une requête avec une image.
+
+### Méthode 1 : Lancement local
+
+1.  **Lancez le serveur Flask :**
+    ```bash
+    python app.py
+    ```
+    Le serveur va démarrer et écouter sur `http://localhost:5000`.
+
+2.  **Exécutez un script client :**
+    Ouvrez un **second terminal** (en laissant le premier tourner) et exécutez un script Python pour envoyer une image de test (voir `test_client.py` dans le dépôt).
+
+### Méthode 2 : Lancement avec Docker
+
+1.  **Construisez l'image Docker :**
+    ```bash
+    docker build -t mnist-app .
+    ```
+
+2.  **Lancez le conteneur :**
+    ```bash
+    docker run -p 5000:5000 mnist-app
+    ```
+    Le serveur est maintenant en cours d'exécution à l'intérieur du conteneur.
+
+3.  **Exécutez un script client :**
+    Comme pour la méthode locale, utilisez un script client pour envoyer une requête à `http://localhost:5000/predict`.
 
 ## Auteur
 

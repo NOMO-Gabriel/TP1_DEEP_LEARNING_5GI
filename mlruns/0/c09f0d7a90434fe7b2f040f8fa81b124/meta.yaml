@@ -1,0 +1,14 @@
+artifact_uri: file:///home/gabriel/Documents/projects/5GI/DEEP-LEARNING/TP1/mlruns/0/c09f0d7a90434fe7b2f040f8fa81b124/artifacts
+end_time: 1758774271718
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c09f0d7a90434fe7b2f040f8fa81b124
+run_name: amusing-boar-543
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758773948435
+status: 3
+tags: []
+user_id: gabriel

@@ -1,0 +1,15 @@
+# Ignorer l'environnement virtuel Python
+venv/
+
+# Ignorer les résultats des expérimentations MLflow
+mlruns/
+
+# Ignorer le répertoire Git
+.git/
+
+# Ignorer les caches Python
+__pycache__/
+*.pyc
+
+# Ignorer les fichiers de configuration de l'éditeur
+.vscode/
