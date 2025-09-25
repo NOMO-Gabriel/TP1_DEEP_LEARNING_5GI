@@ -1,1 +1,3 @@
 venv
+# Ignorer les résultats des expérimentations MLflow
+mlruns/
